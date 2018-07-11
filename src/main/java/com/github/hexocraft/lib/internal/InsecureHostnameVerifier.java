@@ -27,6 +27,8 @@ public final class InsecureHostnameVerifier {
 
     /**
      * Create an check-ignored host name verifier
+     *
+     * @return {@link HostnameVerifier}
      */
     public static HostnameVerifier create() {
         return new HostnameVerifier() {

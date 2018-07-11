@@ -57,9 +57,15 @@ public class HttpClient {
         return client;
     }
 
-
     /**
      * Execute the {@link Request}.
+     *
+     * @param request {@link Request} to execute
+     *
+     * @return {@link okhttp3.Call#execute()}
+     *
+     * @throws UnsuccessfulResponse When response is not uccessful
+     * @throws IOException @see {@link okhttp3.Call#execute()}
      */
     public static Response execute(Request request) throws UnsuccessfulResponse, IOException {
         Response response = get().newCall(request).execute();

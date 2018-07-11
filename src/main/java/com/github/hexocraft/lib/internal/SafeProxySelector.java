@@ -40,6 +40,8 @@ public final class SafeProxySelector {
 
     /**
      * Create a check-ignored host name verifier
+     *
+     * @return {@link ProxySelector}
      */
     public static ProxySelector create() {
         return new ProxySelector() {

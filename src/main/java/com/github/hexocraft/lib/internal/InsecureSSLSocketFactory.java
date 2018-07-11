@@ -31,16 +31,15 @@ import java.security.cert.X509Certificate;
 public final class InsecureSSLSocketFactory {
 
     /**
-     * Create an insecure allowed sll socket factory through insecured ssl context
+     * Create an insecure allowed sll socket factory through insecure ssl context
+     *
+     * @return {@link SSLSocketFactory}
      */
     public static SSLSocketFactory create() {
         SSLContext context = createInsecureSslContext();
         return context.getSocketFactory();
     }
 
-    /**
-     *
-     */
     public static TrustManager[] trustAllCerts() {
         return new TrustManager[]{
             new X509TrustManager() {

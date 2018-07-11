@@ -31,6 +31,8 @@ public final class CredentialsProxyAuthenticator {
 
     /**
      * Create an Authenticator using JVM arguments when proxy authentication is required
+     *
+     * @return {@link Authenticator}
      */
     public static Authenticator create() {
         return new Authenticator() {

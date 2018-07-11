@@ -38,6 +38,8 @@ public final class UserAgentInterceptor {
 
     /**
      * Create a default user agent interceptor
+     *
+     * @return {@link Interceptor}
      */
     public static Interceptor create() {
         return new Interceptor() {
