@@ -19,6 +19,7 @@ package com.github.hexocraft.lib;
  */
 
 import com.github.hexocraft.lib.interfaces.IDownloaderProgress;
+import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
@@ -34,11 +35,20 @@ import java.net.URL;
 
 public class Downloader {
 
+
     public static void downloadFile(final URL url, final File destFile) {
         downloadFile(url, destFile, null);
     }
 
     public static void downloadFile(final URL url, final File destFile, IDownloaderProgress downloaderProgress) {
+        downloadFile(HttpUrl.get(url), destFile, null);
+    }
+
+    public static void downloadFile(final HttpUrl url, final File destFile) {
+        downloadFile(url, destFile, null);
+    }
+
+    public static void downloadFile(final HttpUrl url, final File destFile, IDownloaderProgress downloaderProgress) {
 
         BufferedSource source = null;
         BufferedSink sink = null;
@@ -87,6 +97,7 @@ public class Downloader {
             Util.closeQuietly(source);
         }
     }
+
 
     private static void notifyStart(IDownloaderProgress downloaderProgress) {
         if (downloaderProgress != null) {
