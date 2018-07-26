@@ -4,7 +4,7 @@ package com.github.hexocraft.lib;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -23,8 +23,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 class DownloaderTest {

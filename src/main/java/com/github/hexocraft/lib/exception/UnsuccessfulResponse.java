@@ -4,7 +4,7 @@ package com.github.hexocraft.lib.exception;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -21,15 +21,17 @@ package com.github.hexocraft.lib.exception;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-import java.io.IOException;
-
 
 /**
  * Exception thrown during while requesting an url.
  */
 public class UnsuccessfulResponse extends RuntimeException {
 
-    private Response response;
+    private static final long serialVersionUID = -5604145426991814200L;
+
+    // Response from the server
+    private final transient Response response;
+
 
     public UnsuccessfulResponse(Response response) {
         super(ResponseMessageProcessor.process(response));
@@ -41,14 +43,21 @@ public class UnsuccessfulResponse extends RuntimeException {
         this.response = response;
     }
 
+
     public Response getResponse() {
         return response;
     }
+
+
 
     /**
      * Process the response to a String message
      */
     static class ResponseMessageProcessor {
+
+        private ResponseMessageProcessor() {
+            throw new IllegalAccessError("This is a private constructor. Use static functions instead.");
+        }
 
         public static String process(Response response) {
 
@@ -58,9 +67,9 @@ public class UnsuccessfulResponse extends RuntimeException {
                     message = responseBody.string();
                 }
             }
-            catch (IOException ignored) {
+            catch (Exception ignored) {
+                // This Exception is ignored
             }
-
 
             return "Unexpected code: " + response.code() + " - " + response.message() + " - " + message;
         }

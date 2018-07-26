@@ -4,7 +4,7 @@ package com.github.hexocraft.lib;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -36,12 +36,17 @@ import java.net.URL;
 public class Downloader {
 
 
+    private Downloader() {
+        throw new IllegalAccessError("This is a private constructor Use static functions instead.");
+    }
+
+
     public static void downloadFile(final URL url, final File destFile) {
         downloadFile(url, destFile, null);
     }
 
     public static void downloadFile(final URL url, final File destFile, IDownloaderProgress downloaderProgress) {
-        downloadFile(HttpUrl.get(url), destFile, null);
+        downloadFile(HttpUrl.get(url), destFile, downloaderProgress);
     }
 
     public static void downloadFile(final HttpUrl url, final File destFile) {

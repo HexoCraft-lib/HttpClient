@@ -4,7 +4,7 @@ package com.github.hexocraft.lib.internal;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -36,6 +36,11 @@ public final class SafeProxySelector {
      * Direct no-proxy list
      */
     private static final List<Proxy> DIRECT = Collections.singletonList(Proxy.NO_PROXY);
+
+
+    private SafeProxySelector() {
+        throw new IllegalAccessError("This is a private constructor. Use static functions instead.");
+    }
 
 
     /**

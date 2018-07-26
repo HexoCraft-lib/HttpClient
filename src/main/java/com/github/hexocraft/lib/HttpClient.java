@@ -4,7 +4,7 @@ package com.github.hexocraft.lib;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -27,7 +27,6 @@ import okhttp3.Response;
 
 import javax.net.ssl.X509TrustManager;
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.Arrays;
 
 
@@ -38,12 +37,17 @@ public class HttpClient {
      */
     private static OkHttpClient client = null;
 
+
+    private HttpClient() {
+        throw new IllegalAccessError("This is a private constructor. Use static functions instead.");
+    }
+
     /**
      * Create an instance of OkHttpClient
      *
      * @return OkHttpClient instance
      */
-    public synchronized static OkHttpClient get() {
+    public static synchronized OkHttpClient get() {
         if (client == null) {
             client = new OkHttpClient.Builder()
                 .addInterceptor(UserAgentInterceptor.create())
@@ -67,7 +71,7 @@ public class HttpClient {
      * @throws UnsuccessfulResponse When response is not uccessful
      * @throws IOException @see {@link okhttp3.Call#execute()}
      */
-    public static Response execute(Request request) throws UnsuccessfulResponse, IOException {
+    public static Response execute(Request request) throws IOException {
         Response response = get().newCall(request).execute();
 
         if (!response.isSuccessful()) {

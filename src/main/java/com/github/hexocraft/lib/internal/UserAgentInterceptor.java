@@ -4,7 +4,7 @@ package com.github.hexocraft.lib.internal;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -33,7 +33,12 @@ public final class UserAgentInterceptor {
     /**
      * Default user agent: To update with your own value
      */
-    public static String userAgent = "HexoCraft";
+    private static String userAgent = "HexoCraft";
+
+
+    private UserAgentInterceptor() {
+        throw new IllegalAccessError("This is a private constructor Use static functions instead.");
+    }
 
 
     /**
@@ -52,5 +57,14 @@ public final class UserAgentInterceptor {
                 return chain.proceed(modified);
             }
         };
+    }
+
+    /**
+     * Change the default user-agent
+     *
+     * @param userAgent User agent
+     */
+    public static void setUserAgent(String userAgent) {
+        UserAgentInterceptor.userAgent = userAgent;
     }
 }

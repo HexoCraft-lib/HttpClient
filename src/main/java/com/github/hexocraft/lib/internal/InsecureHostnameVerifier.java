@@ -4,7 +4,7 @@ package com.github.hexocraft.lib.internal;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -20,10 +20,14 @@ package com.github.hexocraft.lib.internal;
 
 
 import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSession;
 
 
 public final class InsecureHostnameVerifier {
+
+
+    private InsecureHostnameVerifier() {
+        throw new IllegalAccessError("This is a private constructor. Use static functions instead.");
+    }
 
     /**
      * Create an check-ignored host name verifier
@@ -31,11 +35,6 @@ public final class InsecureHostnameVerifier {
      * @return {@link HostnameVerifier}
      */
     public static HostnameVerifier create() {
-        return new HostnameVerifier() {
-            @Override
-            public boolean verify(String s, SSLSession sslSession) {
-                return true;
-            }
-        };
+        return (requestedHost, remoteServerSession) -> requestedHost.equalsIgnoreCase(remoteServerSession.getPeerHost());
     }
 }

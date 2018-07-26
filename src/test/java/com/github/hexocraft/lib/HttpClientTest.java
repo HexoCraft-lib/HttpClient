@@ -4,7 +4,7 @@ package com.github.hexocraft.lib;
 
  Copyright 2018 hexosse
 
- Licensed under the Apache License, Version 2.0 (the "License");
+ Licensed under the Apache License, Version 2.0 (the "License")
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
@@ -19,13 +19,12 @@ package com.github.hexocraft.lib;
  */
 
 import com.github.hexocraft.lib.exception.UnsuccessfulResponse;
+import com.github.hexocraft.lib.internal.UserAgentInterceptor;
 import okhttp3.Request;
-import okhttp3.Response;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.io.IOException;
 import java.net.UnknownHostException;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -40,7 +39,9 @@ class HttpClientTest {
     private String httpsUrl2 = "https://dbo.aternos.org/projects/31292";
 
     @Test
-    void HttpClient() throws IOException {
+    void HttpClient() {
+        UserAgentInterceptor.setUserAgent("MyUserAgent");
+
         assertDoesNotThrow(() -> HttpClient.execute(new Request.Builder().url(httpUrl).get().build()));
         assertDoesNotThrow(() -> HttpClient.execute(new Request.Builder().url(httpsUrl).get().build()));
         assertDoesNotThrow(() -> HttpClient.execute(new Request.Builder().url(httpsUrl2).get().build()));
