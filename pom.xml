@@ -19,25 +19,25 @@
     <!-- Info -->
     <name>${project.artifactId}</name>
     <description></description>
-    <url>https://github.com/HexoCraft-lib/httpclient</url>
+    <url>https://github.com/HexoCraft-lib/HttpClient</url>
 
     <!-- Source control -->
     <scm>
         <connection>scm:git:git://github.com/HexoCraft-lib/httpclient.git</connection>
         <developerConnection>scm:git:git@github.com:HexoCraft-lib/httpclient.git</developerConnection>
-        <url>http://github.com/HexoCraft-lib/httpclient</url>
+        <url>http://github.com/HexoCraft-lib/HttpClient</url>
     </scm>
 
     <!-- Issue management -->
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/HexoCraft-lib/httpclient/issues</url>
+        <url>https://github.com/HexoCraft-lib/HttpClient/issues</url>
     </issueManagement>
 
     <!-- Jenkins server -->
     <ciManagement>
         <system>Jenkins</system>
-        <url>http://jenkins.hexocube.fr/job/hexocraft-lib/job/httpclient</url>
+        <url>http://jenkins.hexocube.fr/job/HexoCraft-lib/job/HttpClient</url>
     </ciManagement>
 
     <!-- HexoCrat artifactory repository should have all needed artifacts to build the libs -->
