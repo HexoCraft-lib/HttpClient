@@ -17,8 +17,8 @@
     <packaging>jar</packaging>
 
     <!-- Info -->
-    <name>${project.artifactId}</name>
-    <description></description>
+    <name>HttpClient</name>
+    <description>A simple wrapper around OkHttp for HexoCraft plugins</description>
     <url>https://github.com/HexoCraft-lib/HttpClient</url>
 
     <!-- Source control -->
