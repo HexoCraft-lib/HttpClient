@@ -40,7 +40,7 @@
         <url>http://jenkins.hexocube.fr/job/HexoCraft-lib/job/HttpClient</url>
     </ciManagement>
 
-    <!-- HexoCrat artifactory repository should have all needed artifacts to build the libs -->
+    <!-- HexoCraft artifactory repository should have all needed artifacts to build the libs -->
     <repositories>
         <repository>
             <id>hexocraft-repo</id>
